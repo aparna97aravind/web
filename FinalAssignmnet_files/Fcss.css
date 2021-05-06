@@ -1,0 +1,37 @@
+article {
+    width : 1350px;
+    height : 400px;
+    background-color: black;
+    border: 1px solid black;
+}
+html{
+   
+}
+h3{
+    margin: 0px;
+    font-size: x-large;
+}
+.para{
+    margin-top: 25px ;
+}
+section{
+    width : 500px;
+    height: 250px;
+    margin-top: 85px;
+    margin-left: 680px;
+    color: white;
+    text-align: start;
+    word-wrap: break-word;
+}
+    
+p{
+    
+    font-size: 15px;
+}
+figure {
+    width: 450px;
+    height: 250px;
+    float: left;
+    margin: 75px 0px 0px 200px;
+    border: 1px solid pink;
+}
