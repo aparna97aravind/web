@@ -3,7 +3,9 @@ const app = express();
 const bodyParser = require("body-parser");
 app.use(express.static(__dirname + '/'));
 app.use(bodyParser.urlencoded({ extended: false }));
+app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
+app.set('views', __dirname);
 
 app.post('/aparna',(req, res) => {
     const username = req.body.username;
