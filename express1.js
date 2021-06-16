@@ -21,7 +21,7 @@ app.post('/aparna', (req, res) => {
     let sampleFile;
     let uploadPath;
     
-    res.render("index", {username, password});
+    //res.render("index", {username, password});
 
     if (!req.files || Object.keys(req.files).length === 0)
     {
@@ -39,7 +39,7 @@ app.post('/aparna', (req, res) => {
         }
     })
     
-    //res.render("index", {username, password});
+    res.render("index", {username, password});
 
 })
 
