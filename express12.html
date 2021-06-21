@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Login Page</title>
+</head>
+
+<body>
+  <form id="formajax" method="post" encType="multipart/form-data">
+
+    <label for="username"><b>Username</b></label><br>
+    <input type="text" placeholder="Enter your Name" id="username" name="username">
+    <br>
+    <label for="password"><b>Password</b></label><br>
+    <input type="password" placeholder="Enter your password" id="password" name="password">
+    <br>
+    <br>
+    <input type="file" name="sampleFile" id="newfile" />
+    <button type="submit">SUBMIT</button>
+  </form>
+
+  <ul id="unorderedlist"></ul>
+
+    <script>
+      const form = document.getElementById("formajax");
+
+      //add event listener
+      form.addEventListener('submit', (e) => {
+      e.preventDefault(); //prevents refreshing page
+      const name = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const file = document.getElementById('newfile').files[0];
+        uploadFile(name,password,file);
+      });
+
+      const uploadFile = (names,passwords,files) =>
+      {
+        const data = new FormData();
+        data.append("Username", names);
+        data.append("Password", passwords);
+        data.append("filename",files)
+
+        fetch('/aparna',
+        {
+            method: 'POST',
+            body: data
+        })
+        .then((res) => {
+            return res.json();
+        })
+        .then((json) =>
+        {
+            const username = json.data.username;
+            const password =json.data.password;
+            const message =json.message;
+            
+
+            const ul = document.getElementById("unorderedlist");
+            const list = document.createElement("li")
+            const anchor = document.createElement('a');
+            list.append(message)
+
+            list.append("  Username :")
+            list.append(username)
+            list.append("  Password :")
+            list.append(password)
+            let t = document.createTextNode("Download Path");
+            anchor.setAttribute("href",'data:text/plain;charset=utf-8,' + encodeURIComponent(json.data.url))
+            anchor.setAttribute("download", "Path.txt");
+            anchor.appendChild(t);
+            ul.append(list)
+            ul.appendChild(anchor);
+            ul.append(list)
+        })
+        .catch(function (e) {
+          console.log(e);
+        })  
+      }
+    </script>
+  </body>
+</html>

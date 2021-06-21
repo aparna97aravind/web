@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <title>Login Page</title>
+</head>
+
+<body>
+  <form id="formajax" method="post" encType="multipart/form-data">
+
+
+    <input type="button" id="buttons" value="SUBMIT">
+  </form>
+  <script>
+      var button =document.getElementById("buttons")
+     
+      button.addEventListener(click, function(e){
+        var textarea = "helloo"
+        var filename = "path.text"
+        download("textarea",filename) 
+        {
+            var element = document.createElement('a')
+            element.setAttribute('href','data:text/plain;charset=utf-8,' + encodeURIComponent(textarea))
+            element.setAttribute('download',filename)
+            element.style.display = "none";
+            document.body.appendChild(element)
+            element.click()
+            document.removeChild(element)
+        }
+      })
+      
+      
+  </script>
+</body>
+
+</html>

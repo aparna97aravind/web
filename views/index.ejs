@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>You have logged in</title>
+        <title>response</title>
     </head>
 
     <body>
-        <h3><b>Your file uploaded successfully !!!</b></h3>
+        <!-- <h3><b>Your file uploaded successfully !!!</b></h3> -->
         <table>
             <thead>
                 <th>Username</th>
@@ -22,7 +22,18 @@
                     <% } %>
                 </tr>
         </table><br>
-        
+        <form action="/aparna" id ="ajax" method="post"  encType="multipart/form-data">
+      
+            <label for="username"><b>Username</b></label><br>
+            <input type="text" placeholder="Enter your Name" id="username" name="username">
+            <br>
+            <label for="password"><b>Password</b></label><br>
+            <input type="password" placeholder="Enter your password" id="password" name="password">
+            <br> 
+            <br>
+            <button type="submit">SUBMIT</button>
+        </form>
+        <br>
         <button onclick="history.go(-1)">
             BACK
         </button>
